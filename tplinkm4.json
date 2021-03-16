@@ -1,0 +1,9 @@
+[
+    {
+        "ip": "<your_ip_of_the_main_m4r>",
+        "password": "<your_password>",
+        "text_reboot": "Reboot",
+        "text_reboot_all": "REBOOT ALL",
+        "text_model": "M4R"
+    }
+]
