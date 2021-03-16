@@ -68,6 +68,7 @@ wait.until(ec.visibility_of_element_located((By.XPATH, f"//span[contains(@class,
                                                        f"and text()='{user_data[0]['text_reboot']}']")))
 # here something may obscure again
 sleep(2)
+logging.info("aborting for test - no reboot triggered")
 exit(99)
 # reboot finally
 logging.info("Rebooting...(may take 60s)")
