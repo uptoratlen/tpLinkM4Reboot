@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options as Options_Chrome
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 with open('tplinkm4.json', 'r') as file:
     user_data = json.loads(file.read())
 
@@ -34,7 +35,6 @@ logging.basicConfig(format='%(asctime)s:[%(levelname)-5.5s]  %(message)s',
 
 logging.info(f"Password:{user_data[0]['password']}")
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 url = f"http://{user_data[0]['ip']}"
 wait = WebDriverWait(driver, 10)
 
