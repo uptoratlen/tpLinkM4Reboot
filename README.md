@@ -1,9 +1,9 @@
 # tpLinkM4Reboot
 
 ## Overview
-What it does. Well lets demonstrate it in a video.
-[Demo Video](http://www.kastaban.de/demo_mp4/tpLinkReboot-Demo.mp4 "Demo Video")  
-I blurred the video, but if you are familiar withthe webpage, you will see what it does and how it navigates.
+What it does. Well let's demonstrate it in a video.
+[Demo Video](http://www.kastaban.de/demo_mp4/tpLinkM4Reboot.mp4 "Demo Video")  
+I blurred the video, but if you are familiar with the webpage, you will see what it does and how it navigates.
 
 The steps the automation does are:
 * sign in 
@@ -11,6 +11,7 @@ The steps the automation does are:
 * wait for all devices to show up (not sure if needed, but I wait for at least one/all)
 * click on reboot
 * confirm reboot
+More or less the same steps a user would do.
 
 ## Technologies
 The tpLinkM4Reboot obviously was created in Python with Selenium and the geckodriver(firefox) and or chromedriver (Chrome)-
