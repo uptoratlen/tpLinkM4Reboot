@@ -4,6 +4,7 @@
 What it does. Well let's demonstrate it in a video.
 [Demo Video](http://www.kastaban.de/demo_mp4/tpLinkM4Reboot.mp4 "Demo Video")  
 I blurred the video, but if you are familiar with the webpage, you will see what it does and how it navigates.
+The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the WiFi right during the day...well you admin life is hard...
 
 The steps the automation does are:
 * sign in 
@@ -15,11 +16,11 @@ More or less the same steps a user would do.
 
 ## Technologies
 The tpLinkM4Reboot obviously was created in Python with Selenium and the geckodriver(firefox) and or chromedriver (Chrome)-
-I used to test with firefox but in case oyu prefer chromium, that shoul dbe no big deal (see install)
+I used to test with firefox but in case you prefer chromium, that should be no big deal (see install, but currently missing)
 
 
 ```
-* The job ran successful with webpages at 17th March 2021.
+* The job ran successful with web pages at 17th March 2021.
 * Python 3.7.3 (also 3.9.2 also worked)
 * Selenium was version 3.141.0
 * geckodriver 0.29.0 (cf6956a5ec8e 2021-01-14 10:31 +0200)
@@ -73,7 +74,7 @@ I used to test with firefox but in case oyu prefer chromium, that shoul dbe no b
 
 # Install
 
-Here I listed some steps to get this thing going from the start. In case you use different envs or Os or got already other stuff (versions) installed, I do not mention how to get this working here. This is more "from scratch" instruction.
+Here I listed some steps to get this thing going from the start. In case you use different configs or OSs or got already other stuff (versions) installed, I do not mention how to get this working here. This is more "from scratch" instruction.
 
 ## Pre-requisite
 
@@ -110,7 +111,7 @@ But if you are that familiar with getting selenium on arm61, I guess you won't n
 * Get tpLinkM4Reboot.py and tplinkm4.json from this repository
 ```
 Click on "Code" (green button on top), than select "Download ZIP"
-Extract the Content to some writeable folder. Eg. ~/tplink 
+Extract the Content to some writable folder. Eg. ~/tplink 
 ```
 
 # Usage
@@ -147,7 +148,7 @@ This eg. would execute the script every day at 03:00 in th enight.
 Hint: https://crontab.guru will help you on creating the right time string for crontab 
 
 If the crontab does not find the selenium (as it runs under a different env) add this also to the crontab
-And to be honest that depens on the user, path, os. Maybe there is a better way, but at least fo rme it worked that way.
+And to be honest that depends on the user, path, os. Maybe there is a better way, but at least for me it worked that way.
 
 ````
 sudo crontab -e
