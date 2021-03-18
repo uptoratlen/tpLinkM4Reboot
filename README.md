@@ -17,7 +17,7 @@ More or less the same steps a user would do.
 ## Technologies
 The tpLinkM4Reboot obviously was created in Python with Selenium and the geckodriver(firefox) and or chromedriver (Chrome)-
 I used to test with firefox but in case you prefer chromium, that should be no big deal (see install, but currently missing)
-
+The browser runs also headless, that means it will run with no visible window.
 
 ```
 * The job ran successful with web pages at 17th March 2021.
@@ -77,6 +77,7 @@ I used to test with firefox but in case you prefer chromium, that should be no b
 Here I listed some steps to get this thing going from the start. In case you use different configs or OSs or got already other stuff (versions) installed, I do not mention how to get this working here. This is more "from scratch" instruction.
 
 ## Pre-requisite
+You need one device that runs constantly (or at that time of reboot). And you do not wan tto use a smart plug to toggle power.
 
 ### Windows (10)
 * Install obviously python (assuming default settings) 3.7 (newer may also work, not tested)
