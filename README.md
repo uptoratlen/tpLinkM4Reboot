@@ -63,9 +63,9 @@ The browser runs also headless, that means it will run with no visible window.
 |:---|:---:|:---|
 | ip      | string | the IP of your main M4R device|
 | password      | string   | your password to login to the device or same as app |
-| browser | [Firefox|Chrome]   | One of the two browser is supported |
-| browser_display | [yes|no]   | Yes, will display the browser, in case you want to see what happening, will only work on graphical session |
-| execute_reboot | [Yes/No] | "No" will only do a simulation and not click on the final rebbot confirm, most used for testing |
+| browser | [Firefox\|Chrome]   | One of the two browser is supported |
+| browser_display | [yes\|no]   | Yes, will display the browser, in case you want to see what happening, will only work on graphical session |
+| execute_reboot | [Yes\|No] | "No" will only do a simulation and not click on the final rebbot confirm, most used for testing |
 | text_reboot | string  | The label text of the reboot button|
 | text_reboot_all | string | The button text of the reboot all button|
 | text_model | string | The text of a device in the list; used for waiting|
