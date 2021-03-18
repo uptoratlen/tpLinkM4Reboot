@@ -14,16 +14,21 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 with open('tplinkm4.json', 'r') as file:
     user_data = json.loads(file.read())
 
+browser_display = user_data[0]['browser_display'].lower()
+
 if user_data[0]['browser'].lower() == "firefox":
     # Firefox
     options = Options_FF()
     options.headless = True
+    if browser_display == "yes":
+        options.headless = False
     profile = webdriver.FirefoxProfile()
     driver = webdriver.Firefox(options=options, firefox_profile=profile, executable_path='geckodriver')
 elif user_data[0]['browser'].lower() == "chrome":
     # Chrome
     chrome_options = Options_Chrome()
-    chrome_options.add_argument("--headless")
+    if not browser_display == "yes":
+        chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(options=chrome_options, executable_path='chromedriver')
 else:
     logging.exception("Browser selected that is not supported [firefox|chrome]")
