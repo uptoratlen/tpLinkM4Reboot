@@ -26,9 +26,10 @@ Main purpose of this program is to overcome the missing feature of the [tp-link 
 A reboot is often needed like described here: (https://community.tp-link.com/en/home/forum/topic/225858), to free the cache or increase speed.    
 The web front end of the main deco got a reboot feature. So the program will use a selenium automation to click on the needed buttons/links.
 
-What it does. Well lets demonstrate it in a video.
-[Demo Video](http://www.kastaban.de/demo_mp4/tpLinkReboot-Demo.mp4 "Demo Video")  
-I blurred the video, but if you are familiar withthe webpage, you will see what it does and how it navigates.
+What it does. Well let's demonstrate it in a video.
+[Demo Video](http://www.kastaban.de/demo_mp4/tpLinkM4Reboot.mp4 "Demo Video")  
+I blurred the video, but if you are familiar with the webpage, you will see what it does and how it navigates.
+The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the WiFi right during the day...well you admin life is hard...
 
 The steps the automation does are:
 * sign in 
@@ -36,14 +37,15 @@ The steps the automation does are:
 * wait for all devices to show up (not sure if needed, but I wait for at least one/all)
 * click on reboot
 * confirm reboot
+More or less the same steps a user would do.
 
 ## Technologies
 The tpLinkM4Reboot obviously was created in Python with Selenium and the geckodriver(firefox) and or chromedriver (Chrome)-
-I used to test with firefox but in case oyu prefer chromium, that shoul dbe no big deal (see install)
-
+I used to test with firefox but in case you prefer chromium, that should be no big deal (see install, but currently missing)
+The browser runs also headless, that means it will run with no visible window.
 
 ```
-* The job ran successful with webpages at 17th March 2021.
+* The job ran successful with web pages at 17th March 2021.
 * Python 3.7.3 (also 3.9.2 also worked)
 * Selenium was version 3.141.0
 * geckodriver 0.29.0 (cf6956a5ec8e 2021-01-14 10:31 +0200)
@@ -87,8 +89,8 @@ I used to test with firefox but in case oyu prefer chromium, that shoul dbe no b
 | log_level      | [debug/info/warning/error/critical] | sets the log level|
 | ip      | string | the IP of your main M4R device|
 | password      | string   | your password to login to the device or same as app |
-| browser | [Firefox|Chrome]   | One of the two browser is supported |
-| browser_display | [yes|no]   | Yes, will display the browser, in case you want to see what happening, will only work on graphical session |
+| browser | [Firefox/Chrome]   | One of the two browser is supported |
+| browser_display | [yes/no]   | Yes, will display the browser, in case you want to see what happening, will only work on graphical session |
 | execute_reboot | [Yes/No] | "No" will only do a simulation and not click on the final rebbot confirm, most used for testing |
 | text_reboot | string  | The label text of the reboot button|
 | text_reboot_all | string | The button text of the reboot all button|
@@ -98,9 +100,10 @@ I used to test with firefox but in case oyu prefer chromium, that shoul dbe no b
 
 # Install
 
-Here I listed some steps to get this thing going from the start. In case you use different envs or Os or got already other stuff (versions) installed, I do not mention how to get this working here. This is more "from scratch" instruction.
+Here I listed some steps to get this thing going from the start. In case you use different configs or OSs or got already other stuff (versions) installed, I do not mention how to get this working here. This is more "from scratch" instruction.
 
 ## Pre-requisite
+You need one device that runs constantly (or at that time of reboot). And you do not wan tto use a smart plug to toggle power.
 
 ### Windows (10)
 * Install obviously python (assuming default settings) 3.7 (newer may also work, not tested)
@@ -140,7 +143,7 @@ But if you are that familiar with getting selenium on arm61, I guess you won't n
 * Get tpLinkM4Reboot.py and tplinkm4.json from this repository
 ```
 Click on "Code" (green button on top), than select "Download ZIP"
-Extract the Content to some writeable folder. Eg. ~/tplink 
+Extract the Content to some writable folder. Eg. ~/tplink 
 ```
 
 # Usage
@@ -177,7 +180,7 @@ This eg. would execute the script every day at 03:00 in the night.
 Hint: https://crontab.guru will help you on creating the right time string for crontab 
 
 If the crontab does not find the selenium (as it runs under a different env) add this also to the crontab
-And to be honest that depens on the user, path, os. Maybe there is a better way, but at least fo rme it worked that way.
+And to be honest that depends on the user, path, os. Maybe there is a better way, but at least for me it worked that way.
 
 ````
 sudo crontab -e
