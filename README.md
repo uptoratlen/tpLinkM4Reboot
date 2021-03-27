@@ -119,8 +119,10 @@ and place it in the same folder as the tpLinkM4Reboot.py
 
 ### Linux
 #### FreeBSD
+(for Python 3.7.9 - otherwise change py37 to the verison used 'python3 --version')
 ````
-*
+* pkg install python3 py37-pip firefox-esr geckodriver
+* pip3 install selenium
 ````
 
 #### Ubuntu
@@ -145,6 +147,11 @@ But if you are that familiar with getting selenium on arm61, I guess you won't n
 ```
 Click on "Code" (green button on top), than select "Download ZIP"
 Extract the Content to some writable folder. Eg. ~/tplink 
+```
+or (for Linux)
+```
+* mkdir ~/tplink; cd ~/tplink
+* wget https://github.com/uptoratlen/tpLinkM4Reboot/archive/main.zip ; unzip -j main.zip
 ```
 
 # Usage
@@ -173,6 +180,7 @@ add command to crontab
 sudo crontab -e
 ````
 add a line like this
+path to python3 may be different and also the user, but you sure will be able to adjust that.
 ````
 0 3 * * * /usr/bin/python3 /home/pi/tplink/tpLinkM4Reboot.py
 ````
