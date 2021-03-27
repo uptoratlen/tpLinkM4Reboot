@@ -73,11 +73,12 @@ The browser runs also headless, that means it will run with no visible window.
 ```
 [
     {
+        "log_level": "INFO",
         "ip": "<your_ip_of_the_main_m4r>",
         "password": "<your_password>",
         "browser": "Firefox",
         "browser_display": "no",
-        "execute_reboot": "no",
+        "execute_reboot": "yes",
         "text_reboot": "Reboot",
         "text_reboot_all": "REBOOT ALL",
         "text_model": "M4R"
