@@ -10,9 +10,28 @@ from selenium.webdriver.chrome.options import Options as Options_Chrome
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
+LOG_FILE = os.path.dirname(os.path.abspath(__file__)) + '/tpLinkM4Reboot.log'
+
+logger = logging.getLogger('')
+logger.setLevel(logging.DEBUG)
+fh = logging.handlers.RotatingFileHandler(LOG_FILE, maxBytes=100000, backupCount=10)
+sh = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - [%(name)s.%(funcName)s:%(lineno)d] - %(message)s',
+                              datefmt='%Y-%m-%d %H:%M:%S')
+fh.setFormatter(formatter)
+sh.setFormatter(formatter)
+logger.addHandler(fh)
+logger.addHandler(sh)
+loglvl_allowed = ['debug', 'info', 'warning', 'error', 'critical']
+
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 with open('tplinkm4.json', 'r') as file:
     user_data = json.loads(file.read())
+
+log_level = logging.getLevelName('DEBUG')
+if user_data[0]['log_level'].lower() in loglvl_allowed:
+    log_level = logging.getLevelName(user_data[0]['log_level'].upper())
+logger.setLevel(log_level)
 
 browser_display = user_data[0]['browser_display'].lower()
 
