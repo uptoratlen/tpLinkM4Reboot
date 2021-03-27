@@ -1,6 +1,31 @@
 # tpLinkM4Reboot
 
+- [tpLinkM4Reboot](#tplinkm4reboot)
+  * [Overview](#overview)
+  * [Technologies](#technologies)
+  * [Setup](#setup)
+  * [Edit tplinkm4.json](#edit-tplinkm4json)
+- [Install](#install)
+  * [Pre-requisite](#pre-requisite)
+    + [Windows (10)](#windows--10-)
+    + [Linux](#linux)
+      - [FreeBSD](#freebsd)      
+      - [Ubuntu](#ubuntu)
+      - [Raspian / pi 3 or 4](#raspian---pi-3-or-4)
+  * [this package](#this-package)
+- [Usage](#usage)
+  * [commandline (linux)](#commandline--linux-)
+  * [commandline (windows)](#commandline--windows-)
+  * [windows - taskscheduler (commandline add)](#windows---taskscheduler--commandline-add-)
+  * [linux - cron job](#linux---cron-job)
+  * [logging](#logging)
+- [Future](#future)
+
 ## Overview
+Main purpose of this program is to overcome the missing feature of the [tp-link M4 Deco](https://www.tp-link.com/de/home-networking/deco/deco-m4/) of a scheduled reboot.  
+A reboot is often needed like described here: (https://community.tp-link.com/en/home/forum/topic/225858), to free the cache or increase speed.    
+The web front end of the main deco got a reboot feature. So the program will use a selenium automation to click on the needed buttons/links.
+
 What it does. Well lets demonstrate it in a video.
 [Demo Video](http://www.kastaban.de/demo_mp4/tpLinkReboot-Demo.mp4 "Demo Video")  
 I blurred the video, but if you are familiar withthe webpage, you will see what it does and how it navigates.
@@ -59,6 +84,7 @@ I used to test with firefox but in case oyu prefer chromium, that shoul dbe no b
 ```
 | Name          | value allowed        | Remark|
 |:---|:---:|:---|
+| log_level      | [debug/info/warning/error/critical] | sets the log level|
 | ip      | string | the IP of your main M4R device|
 | password      | string   | your password to login to the device or same as app |
 | browser | [Firefox|Chrome]   | One of the two browser is supported |
@@ -88,6 +114,11 @@ and place it in the same folder as the tpLinkM4Reboot.py
 
 
 ### Linux
+#### FreeBSD
+````
+*
+````
+
 #### Ubuntu
 ````
 * sudo apt-get update
@@ -139,9 +170,9 @@ sudo crontab -e
 ````
 add a line like this
 ````
-0 3 * * * /usr/bin/python3 /home/pi/tplink/tpLinkM4Reboot.py >> /home/pi/tplink/log.log 2>&1
+0 3 * * * /usr/bin/python3 /home/pi/tplink/tpLinkM4Reboot.py
 ````
-This eg. would execute the script every day at 03:00 in th enight.
+This eg. would execute the script every day at 03:00 in the night.
 
 Hint: https://crontab.guru will help you on creating the right time string for crontab 
 
@@ -158,7 +189,21 @@ PYTHONPATH=/home/pi/.local/lib/python3.7/site-packages
 This is for python 3.7 and the user pi, on the target system maybe the path is a different one or the user or the path.
 Adjust the command based on the sample given.
 
+## logging
+The program writes a rolling (10 enumerations) log in the same folder as the .py file withthe name: tpLinkM4Reboot.log  
+Sample log (with a "execute_reboot"="no" - so no real reboot is logged)
+```
+[2021-03-27 22:19:38] - INFO - [root.<module>:59] - Password:*********
+[2021-03-27 22:19:38] - INFO - [root.<module>:65] - Browser [Firefox] now open on ip:xxx.xxx.xxx.xxx
+[2021-03-27 22:19:41] - INFO - [root.<module>:76] - Click now on login button
+[2021-03-27 22:19:50] - INFO - [root.<module>:82] - Logged in successful
+[2021-03-27 22:19:50] - INFO - [root.<module>:88] - Wait for all devices to show up in list
+[2021-03-27 22:19:58] - INFO - [root.<module>:93] - Ready to Reboot
+[2021-03-27 22:20:01] - INFO - [root.<module>:110] - aborting for test - no reboot triggered
+
+```
+
 # Future
-* Rolling Logs from within python
+* ~~Rolling Logs from within python~~ done since 27. March 2021
 * Notification method of success and/or fail (mail?)
 * ....
