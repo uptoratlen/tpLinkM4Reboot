@@ -29,7 +29,7 @@ The web front end of the main deco got a reboot feature. So the program will use
 What it does. Well let's demonstrate it in a video.
 [Demo Video](http://www.kastaban.de/demo_mp4/tpLinkM4Reboot.mp4 "Demo Video")  
 I blurred the video, but if you are familiar with the webpage, you will see what it does and how it navigates.
-The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the WiFi right during the day...well you admin life is hard...
+The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the Wi-Fi right during the day...well you admin life is hard...
 
 The steps the automation does are:
 * sign in 
@@ -73,14 +73,19 @@ The browser runs also headless, that means it will run with no visible window.
 ```
 [
     {
+        "log_level": "INFO",
         "ip": "<your_ip_of_the_main_m4r>",
         "password": "<your_password>",
         "browser": "Firefox",
         "browser_display": "no",
-        "execute_reboot": "no",
+        "execute_reboot": "yes",
         "text_reboot": "Reboot",
         "text_reboot_all": "REBOOT ALL",
-        "text_model": "M4R"
+        "text_model": "M4R",
+        "mqtt_use": "yes",
+        "mqtt_ip": "<your_mqtt_ip>",
+        "mqtt_port": 1883,
+        "mqtt_topic": "deco_status"
     }
 ]
 ```
@@ -91,11 +96,14 @@ The browser runs also headless, that means it will run with no visible window.
 | password      | string   | your password to login to the device or same as app |
 | browser | [Firefox/Chrome]   | One of the two browser is supported |
 | browser_display | [yes/no]   | Yes, will display the browser, in case you want to see what happening, will only work on graphical session |
-| execute_reboot | [Yes/No] | "No" will only do a simulation and not click on the final rebbot confirm, most used for testing |
+| execute_reboot | [yes/no]  | "No" will only do a simulation and not click on the final rebbot confirm, most used for testing |
 | text_reboot | string  | The label text of the reboot button|
 | text_reboot_all | string | The button text of the reboot all button|
 | text_model | string | The text of a device in the list; used for waiting|
-
+| mqtt_use | [yes/no]  | Use mqtt messaging?|
+| mqtt_ip | string | The mqtt ip adress|
+| mqtt_port | int | the mqtt server port; default 1883|
+| mqtt_topic | string | The mqtt topic to publish to, mask \\ with double \\\\|
 
 
 # Install
@@ -110,6 +118,7 @@ You need one device that runs constantly (or at that time of reboot). And you do
 * install with pip selenium
 ```
 pip install selenium
+pip install paho-mqtt
 ```
 * Get geckodriver(.exe) as zip from 
 https://github.com/mozilla/geckodriver/releases, extract the geckodriver.exe
@@ -119,7 +128,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 ### Linux
 #### FreeBSD
 ````
-*
+* 
 ````
 
 #### Ubuntu
@@ -128,6 +137,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 * sudo apt-get upgrade  
 * sudo apt-get install python3 python3-pip firefox-esr firefox-geckodriver
 * pip3 install selenium
+* pip3 install paho-mqtt
 ````
 #### Raspian / pi 3 or 4
 ````
@@ -135,6 +145,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 * suod apt-get upgrade
 * sudo apt-get install python3 python3-pip firefox-esr firefox-geckodriver
 * pip3 install selenium
+* pip3 install paho-mqtt
 ````
 On Raspi 2 or earlier it is very hard to find the packages. 
 But if you are that familiar with getting selenium on arm61, I guess you won't need this readme also not really, right?:-)
@@ -208,5 +219,5 @@ Sample log (with a "execute_reboot"="no" - so no real reboot is logged)
 
 # Future
 * ~~Rolling Logs from within python~~ done since 27. March 2021
-* Notification method of success and/or fail (mail?)
+* ~~Notification method of success and/or fail (mail?)~~ a MQTT message is implemented
 * ....

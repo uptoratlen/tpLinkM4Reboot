@@ -1,13 +1,17 @@
 [
     {
         "log_level": "INFO",
-        "ip": "<your_ip_of_the_main_m4r>",
-        "password": "<your_password>",
+        "ip": "192.168.205.81",
+        "password": "momaF!P!",
         "browser": "Firefox",
         "browser_display": "no",
         "execute_reboot": "yes",
         "text_reboot": "Reboot",
         "text_reboot_all": "REBOOT ALL",
-        "text_model": "M4R"
+        "text_model": "M4R",
+        "mqtt_use": "yes",
+        "mqtt_ip": "<your_mqtt_ip>",
+        "mqtt_port": 1883,
+        "mqtt_topic": "deco_status"
     }
 ]
