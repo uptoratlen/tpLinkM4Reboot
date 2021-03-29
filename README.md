@@ -29,7 +29,7 @@ The web front end of the main deco got a reboot feature. So the program will use
 What it does. Well let's demonstrate it in a video.
 [Demo Video](http://www.kastaban.de/demo_mp4/tpLinkM4Reboot.mp4 "Demo Video")  
 I blurred the video, but if you are familiar with the webpage, you will see what it does and how it navigates.
-The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the Wi-Fi right during the day...well you admin life is hard...
+The video was stopped when the reboot would have been executed. But as my family would raised some concerns when I reboot the WiFi right during the day...well you admin life is hard...
 
 The steps the automation does are:
 * sign in 
@@ -127,8 +127,10 @@ and place it in the same folder as the tpLinkM4Reboot.py
 
 ### Linux
 #### FreeBSD
+(for Python 3.7.9 - otherwise change py37 to the verison used 'python3 --version')
 ````
-* 
+* pkg install python3 py37-pip firefox-esr geckodriver
+* pip3 install selenium
 ````
 
 #### Ubuntu
@@ -155,6 +157,11 @@ But if you are that familiar with getting selenium on arm61, I guess you won't n
 ```
 Click on "Code" (green button on top), than select "Download ZIP"
 Extract the Content to some writable folder. Eg. ~/tplink 
+```
+or (for Linux)
+```
+* mkdir ~/tplink; cd ~/tplink
+* wget https://github.com/uptoratlen/tpLinkM4Reboot/archive/main.zip ; unzip -j main.zip
 ```
 
 # Usage
@@ -183,6 +190,7 @@ add command to crontab
 sudo crontab -e
 ````
 add a line like this
+path to python3 may be different and also the user, but you sure will be able to adjust that.
 ````
 0 3 * * * /usr/bin/python3 /home/pi/tplink/tpLinkM4Reboot.py
 ````
