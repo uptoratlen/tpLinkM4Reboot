@@ -1,8 +1,8 @@
 [
     {
         "log_level": "INFO",
-        "ip": "192.168.205.81",
-        "password": "momaF!P!",
+        "ip": "<your_ip_of_the_main_m4r>",
+        "password": "<your_password>",
         "browser": "Firefox",
         "browser_display": "no",
         "execute_reboot": "yes",
