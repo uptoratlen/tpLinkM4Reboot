@@ -130,7 +130,8 @@ and place it in the same folder as the tpLinkM4Reboot.py
 (for Python 3.7.9 - otherwise change py37 to the verison used 'python3 --version')
 ````
 * pkg install python3 py37-pip firefox-esr geckodriver
-* pip3 install selenium
+* pip install selenium
+* pip install paho-mqtt
 ````
 
 #### Ubuntu
@@ -162,6 +163,7 @@ or (for Linux)
 ```
 * mkdir ~/tplink; cd ~/tplink
 * wget https://github.com/uptoratlen/tpLinkM4Reboot/archive/main.zip ; unzip -j main.zip
+* chmod 775 ~/tplink/*
 ```
 
 # Usage
