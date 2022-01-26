@@ -22,7 +22,7 @@
 - [Future](#future)
 
 ## Overview
-Main purpose of this program is to overcome the missing feature of the [tp-link M4 Deco](https://www.tp-link.com/de/home-networking/deco/deco-m4/) and tp-link M5 Deco of a scheduled reboot.  
+Main purpose of this program is to overcome the missing feature of the [tp-link M4 Deco](https://www.tp-link.com/de/home-networking/deco/deco-m4/) and [tp-link M5 Deco](https://www.tp-link.com/de/home-networking/deco/deco-m5/) of a scheduled reboot.  
 A reboot is often needed like described here: (https://community.tp-link.com/en/home/forum/topic/225858), to free the cache or increase speed.    
 The web front end of the main deco got a reboot feature. So the program will use a selenium automation to click on the needed buttons/links.
 
