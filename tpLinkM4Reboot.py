@@ -83,7 +83,6 @@ try:
     # wait for login field
     wait.until(ec.visibility_of_element_located((By.ID, "local-login-pwd")))
     # type in password from json
-    #driver.find_element_by_css_selector('input.text-text:nth-child(1)').send_keys(user_data[0]['password'])
     driver.find_element(By.CSS_SELECTOR, 'input.text-text:nth-child(1)').send_keys(user_data[0]['password'])
     # wait for fading overlay to disapear / does not yet fully work
     # wait.until(ec.invisibility_of_element_located((By.XPATH,
@@ -91,7 +90,6 @@ try:
     sleep(2)
     # click on login
     logging.info(f"Click now on login button")
-    #driver.find_element_by_link_text("LOG IN").click()
     driver.find_element(By.LINK_TEXT, "LOG IN").click()
 
     # wait for first page loaded
@@ -110,7 +108,6 @@ try:
     # prepare reboot
     logging.info("Ready to Reboot")
 
-    #driver.find_element_by_link_text(f"{user_data[0]['text_reboot_all']}").click()
     driver.find_element(By.LINK_TEXT,f"{user_data[0]['text_reboot_all']}").click()
 
     # wait for the reboot overlay
@@ -122,8 +119,6 @@ try:
     if user_data[0]['execute_reboot'].lower() == "yes":
         # reboot finally
         logging.info("Rebooting...(may take 60s)")
-        #driver.find_element_by_xpath(f"//span[contains(@class, 'text button-text') "
-        #                             f"and text()='{user_data[0]['text_reboot']}']").click()
         driver.find_element(By.XPATH,(f"//span[contains(@class, 'text button-text') "
                                      f"and text()='{user_data[0]['text_reboot']}']")).click()
         publish_to_mqtt(mqtt_topic, 'Rebooting now')
