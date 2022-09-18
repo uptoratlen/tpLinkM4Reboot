@@ -117,7 +117,7 @@ You need one device that runs constantly (or at that time of reboot). And you do
 * Install obviously python (assuming default settings) 3.7 (newer may also work, not tested)
 * install with pip selenium
 ```
-pip install selenium
+pip install selenium<4.0.0
 pip install paho-mqtt
 ```
 * Get geckodriver(.exe) as zip from 
@@ -130,7 +130,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 (for Python 3.7.9 - otherwise change py37 to the verison used 'python3 --version')
 ````
 * pkg install python3 py37-pip firefox-esr geckodriver
-* pip install selenium
+* pip install selenium<4.0.0
 * pip install paho-mqtt
 ````
 
@@ -139,7 +139,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 * sudo apt-get update
 * sudo apt-get upgrade  
 * sudo apt-get install python3 python3-pip firefox-esr firefox-geckodriver
-* pip3 install selenium
+* pip3 install selenium<4.0.0
 * pip3 install paho-mqtt
 ````
 #### Raspian / pi 3 or 4
@@ -147,7 +147,7 @@ and place it in the same folder as the tpLinkM4Reboot.py
 * sudo apt-get update
 * suod apt-get upgrade
 * sudo apt-get install python3 python3-pip firefox-esr firefox-geckodriver
-* pip3 install selenium
+* pip3 install selenium<4.0.0
 * pip3 install paho-mqtt
 ````
 On Raspi 2 or earlier it is very hard to find the packages. 
